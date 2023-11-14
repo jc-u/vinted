@@ -4,6 +4,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 // Import de cloudinary
 const cloudinary = require("cloudinary").v2;
+const stripe = require("stripe")(process.env.STRIPE_API_SECRET);
 
 const app = express();
 app.use(express.json());
@@ -21,9 +22,11 @@ cloudinary.config({
 
 const userRoutes = require("./routes/user");
 const offerRoutes = require("./routes/offer");
+const paymentRoutes = require("./routes/payment");
 
 app.use(userRoutes);
 app.use(offerRoutes);
+app.use(paymentRoutes);
 
 app.all("*", (req, res) => {
 	res.status(404).json({ message: "This route does not exist" });
