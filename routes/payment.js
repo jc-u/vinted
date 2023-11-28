@@ -9,9 +9,9 @@ router.post("/payment", async (req, res) => {
 		const stripeToken = req.body.stripeToken;
 		// Je fais une requête à stripe pour créer une transaction
 		const responseFromStripe = await stripe.charges.create({
-			amount: req.body.price * 100,
-			title: req.body.title,
 			token: stripeToken,
+			title: req.body.title,
+			amount: req.body.price * 100,
 		});
 		// Si le paiement s'est bien passé, on met à jour l'offre et on renvoie au front le fait que tout s'est bien passé
 
