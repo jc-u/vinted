@@ -57,7 +57,7 @@ router.post(
 						EMPLACEMENT: city,
 					},
 				],
-				product_pictures: pictureResults,
+				// product_pictures: pictureResults,
 				product_image: result,
 				owner: req.user,
 			});
