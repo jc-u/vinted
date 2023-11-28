@@ -26,14 +26,14 @@ router.post(
 
 			// faites en sorte de pouvoir enregistrer plusieurs images en plus de l'image principale pour chaque offre.
 
-			const pictureFiles = req.files.pictures;
+			// const pictureFiles = req.files.pictures;
 
-			const picturePromises = pictureFiles.map(async (pictureFile) => {
-				const readablePicture = convertToBase64(pictureFile);
-				return cloudinary.uploader.upload(readablePicture);
-			});
+			// const picturePromises = pictureFiles.map(async (pictureFile) => {
+			// 	const readablePicture = convertToBase64(pictureFile);
+			// 	return cloudinary.uploader.upload(readablePicture);
+			// });
 
-			const pictureResults = await Promise.all(picturePromises);
+			// const pictureResults = await Promise.all(picturePromises);
 
 			// Je crée mon offre
 			const newOffer = new Offer({
