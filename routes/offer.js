@@ -128,6 +128,9 @@ router.get("/offers", async (req, res) => {
 
 		// Je vais chercher mes offres
 		const offers = await Offer.find(filter)
+			.select(
+				"product_name product_price product_description product_details product_image"
+			)
 			.sort(sortFilter)
 			.limit(5)
 			.skip(skip)
