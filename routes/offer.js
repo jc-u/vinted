@@ -134,7 +134,7 @@ router.get("/offers", async (req, res) => {
 			.sort(sortFilter)
 			.limit(5)
 			.skip(skip)
-			.select("product_name product_price");
+			.populate("owner", "account _id");
 
 		// Je regarde combien d'offres corespondent à mes recherches
 		const numberOfOffers = await Offer.countDocuments(filter);
